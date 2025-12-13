@@ -9,4 +9,4 @@ Dataset 2: synthetic-Rail Surface Discrete Defects-12k with adaptive MCMC sampli
 A total of 12,000 synthetic images were generated through a CGAN with an adaptive Markov Chain Monte Carlo (MCMC)-guided image-label space exploration and refinement sampling process to enhance image diversity and quality.
 
 ## Training
-[Environment configuration](https://github.com/shanglian-zhou/synthetic_rail_surface_defects/tree/master/env_settings/) and [training scripts](https://github.com/shanglian-zhou/synthetic_rail_surface_defects/tree/master/scripts/) can facilitate reproducibility of the results.
+[Environment configuration](https://github.com/shanglian-zhou/synthetic_rail_surface_defects/tree/main/env_settings/) and [training scripts](https://github.com/shanglian-zhou/synthetic_rail_surface_defects/tree/main/scripts/) can facilitate reproducibility of the results.
