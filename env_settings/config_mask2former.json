@@ -1,0 +1,50 @@
+{
+    "seed": 42,
+    "debug": false,
+    "host_type": "server2_windows",
+    "model_type": "mask2former",
+    "arch_name": "mask2former",
+    "model_name": "facebook/mask2former-swin-tiny-ade-semantic",
+    "model_ckpt_name": "fb_m2f-swin-tiny-ade-semantic",
+    "model_cfg_params": {},
+    "model_checkpoint": null,
+    "image_size": 512,
+    "early_stop": true,
+    "stop_patience": 10,
+    "lr": 5e-05,
+    "epochs": 100,
+    "batch_size": 8,
+    "shuffle_data": true,
+    "is_demo_dataset": false,
+    "dataset_types": [
+        "rsdd_type1_type2_crop_augmented",
+        "shanglian_gen_sd_15_sz512"
+    ],
+    "data_root": "D:\\Igor\\RAILWAY\\GENERATED",
+    "dataset_type_paths": {
+        "rsdd_type1_type2_crop_augmented": "D:\\Igor\\RAILWAY\\GENERATED/seg_data_rsdd_type1_type2_crop_boosted",
+        "shanglian_gen_sd_15_sz512": "D:\\Igor\\RAILWAY\\GENERATED/seg_gen_sd_15"
+    },
+    "ignore_bg_cls": false,
+    "bg_cls_id": 1,
+    "id2label": {
+        "0": "fg",
+        "1": "bg"
+    },
+    "label2id": {
+        "fg": 0,
+        "bg": 1
+    },
+    "num_labels": 2,
+    "run_train": true,
+    "show_demo_images": false,
+    "train_aug_type": "no_aug",
+    "aug_da_type": null,
+    "apply_aug": false,
+    "uniq_filename": "2025-12-05_07.22.31.189137",
+    "extra_dir": "",
+    "out_dir": "./tmp/sh_sd/weights_2025-12-05_07.22.31.189137_fb_m2f-swin-tiny-ade-semantic_sz512_e100_b8_TYPE12_CROP_BOOST_SH_SD_15_SZ512",
+    "split_ratio_train": 0.7,
+    "split_ratio_val": 0.1,
+    "split_ratio_test": 0.2
+}

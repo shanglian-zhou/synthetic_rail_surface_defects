@@ -1,0 +1,45 @@
+{
+    "seed": 42,
+    "host_type": "server1_ubuntu",
+    "gpu_devices": [
+        [
+            "/physical_device:GPU:0",
+            "GPU"
+        ]
+    ],
+    "old_scheme": false,
+    "arch": "unet",
+    "backbone": "efficientnetb2",
+    "model_ckpt_name": "efficientnetb2",
+    "CLASSES": [
+        255
+    ],
+    "n_classes": 1,
+    "activation": "sigmoid",
+    "loss": "dice_and_focal_loss",
+    "mode_direction": "min",
+    "monitor_metric": "val_loss",
+    "early_stop": true,
+    "stop_patience": 10,
+    "image_size": 512,
+    "lr": 0.0001,
+    "epochs": 100,
+    "batch_size": 16,
+    "dataset_types": [
+        "rsdd_type1_type2_crop_augmented",
+        "shanglian_sc_mcmc_4"
+    ],
+    "data_root": "/home/szhou/Desktop/Igor/Railway_datasets/GENERATED",
+    "dataset_type_paths": {
+        "rsdd_type1_type2_crop_augmented": "/home/szhou/Desktop/Igor/Railway_datasets/GENERATED/seg_data_rsdd_type1_type2_crop_boosted",
+        "shanglian_sc_mcmc_4": "/home/szhou/Desktop/Igor/Railway_datasets/GENERATED/seg_mcmc_subcase_4_20250324"
+    },
+    "run_train": true,
+    "show_demo_images": false,
+    "aug_type": "no_aug",
+    "apply_aug": false,
+    "out_dir": "./tmp/sh_mcmc/weights_2025-04-23_15.38.12.611617_unet_efficientnetb2_sz512_e100_b16",
+    "split_ratio_train": 0.7,
+    "split_ratio_val": 0.1,
+    "split_ratio_test": 0.2
+}

@@ -1,0 +1,56 @@
+{
+    "seed": 42,
+    "host_type": "server1_ubuntu",
+    "arch_name": "segformer",
+    "model_checkpoint": "nvidia/mit-b0",
+    "model_ckpt_name": "nvidia_mit-b0",
+    "use_min_val_loss": true,
+    "mode_direction": "min",
+    "monitor_metric": "val_loss",
+    "early_stop": true,
+    "stop_patience": 10,
+    "lr": 6e-05,
+    "epochs": 100,
+    "batch_size": 8,
+    "shuffle_data": true,
+    "tf_cache_dataset": false,
+    "dataset_types": [
+        "rsdd_type1_type2_crop_augmented",
+        "shanglian_sc_mcmc_3"
+    ],
+    "data_root": "/home/szhou/Desktop/Igor/Railway_datasets/GENERATED",
+    "dataset_type_paths": {
+        "rsdd_type1_type2_crop_augmented": "/home/szhou/Desktop/Igor/Railway_datasets/GENERATED/seg_data_rsdd_type1_type2_crop_boosted",
+        "shanglian_sc_mcmc_3": "/home/szhou/Desktop/Igor/Railway_datasets/GENERATED/seg_mcmc_subcase_3_20250324"
+    },
+    "image_size": 512,
+    "id2label": {
+        "0": "bg",
+        "1": "fg"
+    },
+    "label2id": {
+        "bg": 0,
+        "fg": 1
+    },
+    "num_labels": 2,
+    "run_train": true,
+    "show_demo_images": false,
+    "aug_type": "no_aug",
+    "apply_aug": false,
+    "use_albumentations": false,
+    "aug_horiz_flip": false,
+    "aug_vert_flip": false,
+    "aug_clahe": false,
+    "aug_sat": null,
+    "aug_cont": null,
+    "aug_bri": null,
+    "uniq_filename": "2025-04-20_12.00.20.985517",
+    "extra_dir": "",
+    "out_dir": "./tmp/sh_mcmc_split/weights_2025-04-20_12.00.20.985517_nvidia_mit-b0_sz512_e100_b8_TYPE12_CROP_BOOST_SH_MCMC_SC_3",
+    "split_ratio_train": 0.7,
+    "split_ratio_val": 0.1,
+    "split_ratio_test": 0.2,
+    "train_len": 5298,
+    "valid_len": 757,
+    "test_len": 1515
+}
