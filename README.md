@@ -51,7 +51,7 @@ All segmentation models are trained and evaluated under identical data volume an
 ---
 
 ### 4. Released Synthetic Dataset
-**`(https://github.com/shanglian-zhou/synthetic_rail_surface_defects/releases/tag/v1.0-mcmc-refined-6400)`**
+**`https://github.com/shanglian-zhou/synthetic_rail_surface_defects/releases/tag/v1.0-mcmc-refined-6400`**
 
 - **6,400 synthetic image–label pairs**
 - Generated and refined using the proposed adaptive MCMC + CGAN framework
