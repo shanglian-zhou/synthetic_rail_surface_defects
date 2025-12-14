@@ -59,12 +59,8 @@ SOURCE_DIR = "test/source_20251202_sd21"
 OUTPUT_DIR = "test/target_20251202_sd21"
 CHECKPOINT_PATH = "checkpoints_20251202_sd21/last.ckpt"
 BATCH_SIZE = 25
-file_predix = ""
+file_predix = "sd_v21_"
 CONFIG_PATH = "models/cldm_v21.yaml"
-
-
-
-file_predix = "sd_v15_"
 
 STEPS = 50
 ETA = 0.0
