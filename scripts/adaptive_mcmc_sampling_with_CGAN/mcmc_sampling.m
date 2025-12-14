@@ -87,6 +87,7 @@ CONFIG.offset1    = 0.3;
 CONFIG.smallAreaThresh = 200;
 CONFIG.medAreaThresh   = 500;
 CONFIG.perturbationStrength0 = 2;
+CONFIG.adjust_period = 2;  % adjust every N iterations
 
 rng(666);
 
@@ -241,6 +242,32 @@ for idx = 1:numel(labelFiles)
                                   abs((proposedScore - currentScore) / max(eps, currentScore))];
         record_iou(t)          = iou;
         record_time(t)         = toc(tIterStart);
+
+        % ------------------------------------------------------------
+        % Adaptive Perturbation Strength Control (Post Burn-in)
+        % ------------------------------------------------------------
+        
+        if t > CONFIG.burnIn && mod(t - CONFIG.burnIn, CONFIG.adjust_period) == 0
+        
+            % Current acceptance rate
+            acceptanceRate = mean(record_acceptance(1:t,3));
+        
+            % Dynamically adjust perturbation strength
+            if acceptanceRate < 0.3
+                perturbationStrength = min( ...
+                    2.0, ...
+                    perturbationStrength * (1 + (2/3) * (0.3 - acceptanceRate)) );
+            elseif acceptanceRate > 0.5
+                perturbationStrength = max( ...
+                    1.0, ...
+                    perturbationStrength * (1 - (2/5) * (acceptanceRate - 0.5)) );
+            end
+        
+            % Optional debug print (disabled by default)
+            % fprintf('[Iter %d] AcceptRate=%.2f | PerturbStrength=%.2f\n', ...
+            %     t, acceptanceRate, perturbationStrength);
+        
+        end
 
     end
     totalTime = toc(tStart);
