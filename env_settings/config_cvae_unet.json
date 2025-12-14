@@ -1,0 +1,26 @@
+{
+    "seed": 42,
+    "debug": false,
+    "host_type": "server2_windows",
+    "defect_data_type": "type_1_crop",
+    "img_dir": "\\RSDDs_cropped\\type_1_cropped/images",
+    "mask_dir": "\\RSDDs_cropped\\type_1_cropped/labels",
+    "latent_dim": 128,
+    "is_cuda_enabled": true,
+    "device_count": 1,
+    "epochs": 100,
+    "batch_size": 8,
+    "learning_rate": 0.0001,
+    "dataloader_workers": 4,
+    "loss_item": [
+        "l1",
+        "cyclical_schedule",
+        1.0,
+        0.1,
+        null
+    ],
+    "skip_drop_prob": 0.0,
+    "img_size": 160,
+    "uniq_date_filename": "2025-12-02_20.13.50.773884",
+    "out_dir": "\\weights_2025-12-02_20.13.50.773884_realdefectdatasettype.type1_crop_e100_b8_sz160"
+}
