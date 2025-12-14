@@ -71,16 +71,17 @@ CONFIG.defectRGB    = uint8([255 0 0]);
 CONFIG.backgroundRGB= uint8([0 255 0]);
 
 % Normalization bounds for discriminator score -> [0,1]
+% Adjustr these bounds based on your dataset distribution
 CONFIG.b_max = 0.2767;
 CONFIG.b_min = 0.2207;
 
 % MH acceptance function parameters
 CONFIG.beta1      = 3;
 CONFIG.x_skewness = 0.685;
-CONFIG.k_reg      = 0.5;   % used for gamma
+CONFIG.k_gamma    = 0.5;
 CONFIG.lambda1    = 0.5;
 CONFIG.iou_target = 0.6;
-CONFIG.offset1    = 0.3;
+CONFIG.k_reg      = 0.3;
 
 % Adaptive perturbation thresholds (pixel counts) and initial strength
 % These thresholds control structuring-element size selection
@@ -139,12 +140,12 @@ end
 % ------------------------------
 b_norm = @(x) min(1, max(0, (x - CONFIG.b_min) / (CONFIG.b_max - CONFIG.b_min)));
 
-gamma1 = ((1 - CONFIG.k_reg) * CONFIG.x_skewness + 1) / (CONFIG.x_skewness + 1);
+gamma1 = ((1 - CONFIG.k_gamma) * CONFIG.x_skewness + 1) / (CONFIG.x_skewness + 1);
 
 acceptance_prob = @(proposed_norm, current_norm, iou) ...
     min(max(0, exp(CONFIG.beta1 * (proposed_norm - current_norm)) * gamma1 ...
     - CONFIG.lambda1 * abs(iou - CONFIG.iou_target) ...
-    - CONFIG.offset1), 1);
+    - CONFIG.k_reg), 1);
 
 %% ------------------------------
 % Main loop (no parallel)
